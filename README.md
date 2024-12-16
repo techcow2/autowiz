@@ -1,6 +1,8 @@
-# AppWiz
+# AutoWiz
 
-<img src="https://github.com/user-attachments/assets/badbf49d-9ded-43c7-bcba-5929b2ffd5fc" alt="Resized Banner" width="600">
+
+<img src="https://github.com/user-attachments/assets/ee8bbf1c-f26c-45e4-876a-7e9aaff8a694" alt="Resized AutoWiz Banner" width="800" height="300">
+
 
 <p>&nbsp;</p>
 
