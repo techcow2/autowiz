@@ -47,7 +47,7 @@ iz is a powerful and user-friendly automation tool designed to record and playba
    Navigate to your desired directory and clone the AppWiz repository:
 
    ```bash
-   git clone https://github.com/techcow2/appwiz.git
+   git clone https://github.com/techcow2/autowiz.git
    ```
 
 2. **Navigate to the Directory**
@@ -165,7 +165,7 @@ Contributions are what make the open-source community thrive! We appreciate any 
 2. **Clone Your Fork**
 
    ```bash
-   git clone https://github.com/techcow2/appwiz.git
+   git clone https://github.com/techcow2/autowiz.git
    ```
 
 3. **Create a New Branch**
