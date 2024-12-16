@@ -1,7 +1,10 @@
 # AutoWiz
 
+<img src="https://github.com/user-attachments/assets/ee8bbf1c-f26c-45e4-876a-7e9aaff8a694" 
+     alt="AutoWiz Banner" 
+     width="100%" 
+     style="max-width: 800px; height: auto; display: block; margin: 0 auto;">
 
-<img src="https://github.com/user-attachments/assets/ee8bbf1c-f26c-45e4-876a-7e9aaff8a694" alt="ResAutoWized AutoWAutoWiz Banner" width="800" height="300">
 
 
 <p>&nbsp;</p>
