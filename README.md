@@ -6,7 +6,7 @@
 
 <p>&nbsp;</p>
 
-AutoWiz is a powerful and user-friendly automation tool designed to record and playback your keyboard and mouse actions with precision and ease. Whether you're looking to automate repetitive tasks, create macros, or streamline your workflow, AutoWAutoWiz has got you covered.
+AutoWiz is a powerful and user-friendly automation tool designed to record and playback your keyboard and mouse actions with precision and ease. Whether you're looking to automate repetitive tasks, create macros, or streamline your workflow, AutoWiz has got you covered.
 
 ## Table of Contents
 
