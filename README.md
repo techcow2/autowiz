@@ -1,4 +1,4 @@
-# iz
+# AppWiz
 
 <img src="https://github.com/user-attachments/assets/badbf49d-9ded-43c7-bcba-5929b2ffd5fc" alt="Resized Banner" width="600">
 
