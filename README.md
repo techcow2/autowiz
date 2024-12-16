@@ -1,4 +1,4 @@
-# AutoWAutoWiz
+# AutoWiz
 
 
 <img src="https://github.com/user-attachments/assets/ee8bbf1c-f26c-45e4-876a-7e9aaff8a694" alt="ResAutoWized AutoWAutoWiz Banner" width="800" height="300">
@@ -6,7 +6,7 @@
 
 <p>&nbsp;</p>
 
-AutoWAutoWiz is a powerful and user-friendly automation tool designed to record and playback your keyboard and mouse actions with precision and ease. Whether you're looking to automate repetitive tasks, create macros, or streamline your workflow, AutoWAutoWiz has got you covered.
+AutoWiz is a powerful and user-friendly automation tool designed to record and playback your keyboard and mouse actions with precision and ease. Whether you're looking to automate repetitive tasks, create macros, or streamline your workflow, AutoWAutoWiz has got you covered.
 
 ## Table of Contents
 
