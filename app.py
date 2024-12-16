@@ -597,8 +597,23 @@ class Application(tk.Tk):
         if not self.recorder.events:
             messagebox.showwarning("Warning", "No events to save. Please record actions first.")
             return
+            
+        # Temporarily stop hotkey listeners
+        if hasattr(self, 'stop_listener') and self.stop_listener and hasattr(self.stop_listener, 'listener'):
+            self.stop_listener.listener.stop()
+        if hasattr(self, 'start_listener') and self.start_listener and hasattr(self.start_listener, 'listener'):
+            self.start_listener.listener.stop()
+            
         # Prompt user for a recording name
         name = simpledialog.askstring("Save Recording", "Enter a name for the recording:")
+        
+        # Restart hotkey listeners
+        if not self.recorder.recording and not (self.player and self.player.playing):
+            # Only restart listeners if we're not recording or playing
+            self.stop_listener = HotkeyListener(self.stop_current_action, STOP_HOTKEY)
+            START_HOTKEY = {KeyCode.from_char('r')}
+            self.start_listener = HotkeyListener(self.start_recording_if_idle, START_HOTKEY)
+            
         if name:
             # Sanitize and check for duplicates
             safe_name = "".join([c for c in name if c.isalpha() or c.isdigit() or c in (' ', '_', '-')]).rstrip()
@@ -782,56 +797,68 @@ class Application(tk.Tk):
         """Show the disclaimer window if not already agreed."""
         disclaimer_window = tk.Toplevel(self)
         disclaimer_window.title("Disclaimer - AutoWiz")
-        disclaimer_window.geometry("600x400")
+        disclaimer_window.geometry("700x500")  # Increased size
         disclaimer_window.configure(bg="#ffffff")
         disclaimer_window.transient(self)  # Set to be on top of the main window
         disclaimer_window.grab_set()  # Make it modal
-        self.center_child_window(disclaimer_window, 600, 400)
+        self.center_child_window(disclaimer_window, 700, 500)
 
-        # Use a professional font
-        header_font = font.Font(family="Helvetica", size=16, weight="bold")
-        text_font = font.Font(family="Helvetica", size=10)
+        # Create main content frame with padding
+        content_frame = tk.Frame(disclaimer_window, bg="#ffffff", padx=40, pady=30)
+        content_frame.pack(fill="both", expand=True)
 
         # Header
-        disclaimer_label = tk.Label(disclaimer_window, text="Disclaimer", font=header_font, bg="#ffffff", fg="#333333")
-        disclaimer_label.pack(pady=(20, 10))
+        header_font = font.Font(family="Helvetica", size=18, weight="bold")
+        disclaimer_label = tk.Label(content_frame, text="Disclaimer", font=header_font, bg="#ffffff", fg="#333333")
+        disclaimer_label.pack(pady=(0, 20))
 
         # Disclaimer Text
+        text_font = font.Font(family="Helvetica", size=11)
         disclaimer_text = (
             "By using AutoWiz, you agree to the following terms:\n\n"
-            "1. Responsibility: You are solely responsible for how you use this tool.\n"
-            "2. Compliance: Ensure that your use of AutoWiz complies with all applicable laws and regulations.\n"
-            "3. Ethical Use: Do not use AutoWiz for malicious purposes, such as automating actions to deceive or harm others.\n"
+            "1. Responsibility: You are solely responsible for how you use this tool.\n\n"
+            "2. Compliance: Ensure that your use of AutoWiz complies with all applicable laws and regulations.\n\n"
+            "3. Ethical Use: Do not use AutoWiz for malicious purposes, such as automating actions to deceive or harm others.\n\n"
             "4. Permissions: Ensure that AutoWiz has the necessary permissions to control your keyboard and mouse.\n\n"
             "Do you agree to these terms?"
         )
-        disclaimer_label = tk.Label(disclaimer_window, text=disclaimer_text, justify="left", bg="#ffffff", fg="#333333", font=text_font, wraplength=560)
-        disclaimer_label.pack(padx=30, pady=(0, 20))
+        
+        # Create Text widget for better text display
+        text_widget = tk.Text(content_frame, wrap="word", bg="#ffffff", fg="#333333", 
+                            font=text_font, width=50, height=12, relief="flat",
+                            padx=20, pady=20)
+        text_widget.insert("1.0", disclaimer_text)
+        text_widget.configure(state="disabled")  # Make text read-only
+        text_widget.pack(fill="both", expand=True, pady=(0, 20))
 
-        # Buttons
-        button_frame = tk.Frame(disclaimer_window, bg="#ffffff")
-        button_frame.pack(pady=10)
+        # Buttons frame with padding
+        button_frame = tk.Frame(content_frame, bg="#ffffff")
+        button_frame.pack(pady=(0, 20))
 
+        # Style buttons
+        button_font = font.Font(family="Helvetica", size=10, weight="bold")
         agree_button = tk.Button(
             button_frame,
-            text="Agree",
+            text="I Agree",
             command=lambda: self.agree_disclaimer(disclaimer_window),
-            width=12,
+            width=15,
+            height=2,
             bg="#4CAF50",
             fg="white",
-            font=("Helvetica", 10, "bold"),
+            font=button_font,
             cursor="hand2"
         )
         agree_button.pack(side="left", padx=20)
 
         decline_button = tk.Button(
             button_frame,
-            text="Decline",
+            text="I Decline",
             command=self.decline_disclaimer,
-            width=12,
+            width=15,
+            height=2,
             bg="#f44336",
             fg="white",
-            font=("Helvetica", 10, "bold"),
+            font=button_font,
             cursor="hand2"
         )
         decline_button.pack(side="left", padx=20)
