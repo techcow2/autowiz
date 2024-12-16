@@ -217,4 +217,4 @@ Have questions or need support? Open an issue!
 
 ---
 
-**Disclaimer:** iz is intended for legitimate and ethical use only. Users are responsible for ensuring that their use of iz complies with all applicable laws and regulations. The developers are not liable for any misuse or damages resulting from the use of this software.
+**Disclaimer:** AppWiz is intended for legitimate and ethical use only. Users are responsible for ensuring that their use of iz complies with all applicable laws and regulations. The developers are not liable for any misuse or damages resulting from the use of this software.
