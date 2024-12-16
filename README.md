@@ -31,7 +31,6 @@ AutoWiz is a powerful and user-friendly automation tool designed to record and p
 - **Always on Top:** Keep AutoWiz visible on your screen by enabling the "Always on Top" feature.
 - **Visual Status Indicators:** Stay informed about the current state of AutoWiz with color-coded status indicators and progress bars.
 - **Help and About Sections:** Access comprehensive help documentation and information about AutoWiz directly within the application.
-- **Disclaimer Agreement:** A built-in disclaimer ensures users are informed about responsible usage.
 
 ## Demo
 (coming soon)
