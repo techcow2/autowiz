@@ -1,6 +1,8 @@
 # AppWiz
 
-![appwiz_github_banner_fixed](https://github.com/user-attachments/assets/ac4a9c46-1434-45bb-a498-1d80f6e560c8)
+
+<img src="https://github.com/user-attachments/assets/badbf49d-9ded-43c7-bcba-5929b2ffd5fc" alt="Resized Banner" width="800">
+
 
 
 AppWiz is a powerful and user-friendly automation tool designed to record and playback your keyboard and mouse actions with precision and ease. Whether you're looking to automate repetitive tasks, create macros, or streamline your workflow, AppWiz has got you covered.
