@@ -1,10 +1,10 @@
-# AppWiz
+# iz
 
 <img src="https://github.com/user-attachments/assets/badbf49d-9ded-43c7-bcba-5929b2ffd5fc" alt="Resized Banner" width="600">
 
 <p>&nbsp;</p>
 
-AppWiz is a powerful and user-friendly automation tool designed to record and playback your keyboard and mouse actions with precision and ease. Whether you're looking to automate repetitive tasks, create macros, or streamline your workflow, AppWiz has got you covered.
+iz is a powerful and user-friendly automation tool designed to record and playback your keyboard and mouse actions with precision and ease. Whether you're looking to automate repetitive tasks, create macros, or streamline your workflow, iz has got you covered.
 
 ## Table of Contents
 
@@ -26,8 +26,8 @@ AppWiz is a powerful and user-friendly automation tool designed to record and pl
 - **Loop Playback:** Enable continuous playback of your recordings until you decide to stop.
 - **Save and Manage Recordings:** Easily save your recordings, load existing ones, and delete unwanted recordings.
 - **Compact and Regular Modes:** Toggle between a detailed interface and a streamlined compact mode for convenience.
-- **Always on Top:** Keep AppWiz visible on your screen by enabling the "Always on Top" feature.
-- **Visual Status Indicators:** Stay informed about the current state of AppWiz with color-coded status indicators and progress bars.
+- **Always on Top:** Keep iz visible on your screen by enabling the "Always on Top" feature.
+- **Visual Status Indicators:** Stay informed about the current state of iz with color-coded status indicators and progress bars.
 - **Help and About Sections:** Access comprehensive help documentation and information about AppWiz directly within the application.
 - **Disclaimer Agreement:** A built-in disclaimer ensures users are informed about responsible usage.
 
@@ -47,7 +47,7 @@ AppWiz is a powerful and user-friendly automation tool designed to record and pl
    Navigate to your desired directory and clone the AppWiz repository:
 
    ```bash
-   git clone https://github.com/techcow2/AppWiz.git
+   git clone https://github.com/techcow2/appwiz.git
    ```
 
 2. **Navigate to the Directory**
@@ -84,10 +84,10 @@ AppWiz is a powerful and user-friendly automation tool designed to record and pl
 
 ## Usage
 
-1. **Run AppWiz**
+1. **Run iz**
 
    ```bash
-   python appwiz.py
+   python iz.py
    ```
 
 2. **Recording Actions**
@@ -113,12 +113,12 @@ AppWiz is a powerful and user-friendly automation tool designed to record and pl
 5. **Additional Features**
 
    - **Compact Mode:** Toggle between regular and compact interfaces for a streamlined experience.
-   - **Always on Top:** Keep AppWiz visible above other windows by enabling this feature.
-   - **Help and About:** Access detailed help documentation and information about AppWiz through the respective buttons.
+   - **Always on Top:** Keep iz visible above other windows by enabling this feature.
+   - **Help and About:** Access detailed help documentation and information about iz through the respective buttons.
 
 ## Configuration
 
-AppWiz stores its configurations and recordings in the following directories:
+iz stores its configurations and recordings in the following directories:
 
 - **Recordings Directory:** `recordings/`
 - **Configuration File:** `config.json`
@@ -127,12 +127,12 @@ Ensure these files and directories are present in the root directory of the appl
 
 ## Hotkeys
 
-AppWiz supports global hotkeys for enhanced convenience:
+iz supports global hotkeys for enhanced convenience:
 
 - **Start Recording:** Press **R**
 - **Stop Recording or Playback:** Press **ESC**
 
-*Note:* Ensure that AppWiz is running and has the necessary permissions to capture global hotkeys.
+*Note:* Ensure that iz is running and has the necessary permissions to capture global hotkeys.
 
 ## Screenshots
 
@@ -154,7 +154,7 @@ AppWiz supports global hotkeys for enhanced convenience:
 
 ## Contributing
 
-Contributions are what make the open-source community thrive! We appreciate any contributions you make to AppWiz.
+Contributions are what make the open-source community thrive! We appreciate any contributions you make to iz.
 
 ### Steps to Contribute
 
@@ -165,7 +165,7 @@ Contributions are what make the open-source community thrive! We appreciate any 
 2. **Clone Your Fork**
 
    ```bash
-   git clone https://github.com/techcow2/AppWiz.git
+   git clone https://github.com/techcow2/appwiz.git
    ```
 
 3. **Create a New Branch**
@@ -217,4 +217,4 @@ Have questions or need support? Open an issue!
 
 ---
 
-**Disclaimer:** AppWiz is intended for legitimate and ethical use only. Users are responsible for ensuring that their use of AppWiz complies with all applicable laws and regulations. The developers are not liable for any misuse or damages resulting from the use of this software.
+**Disclaimer:** iz is intended for legitimate and ethical use only. Users are responsible for ensuring that their use of iz complies with all applicable laws and regulations. The developers are not liable for any misuse or damages resulting from the use of this software.
