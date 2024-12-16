@@ -1,0 +1,5 @@
+pynput==1.7.6
+keyboard==0.13.5
+mouse==0.7.1
+PyQt5==5.15.9
+pywin32==306 
