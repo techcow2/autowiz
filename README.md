@@ -1,12 +1,12 @@
-# AutoWiz
+# AutoWAutoWiz
 
 
-<img src="https://github.com/user-attachments/assets/ee8bbf1c-f26c-45e4-876a-7e9aaff8a694" alt="Resized AutoWiz Banner" width="800" height="300">
+<img src="https://github.com/user-attachments/assets/ee8bbf1c-f26c-45e4-876a-7e9aaff8a694" alt="ResAutoWized AutoWAutoWiz Banner" width="800" height="300">
 
 
 <p>&nbsp;</p>
 
-AutoWiz is a powerful and user-friendly automation tool designed to record and playback your keyboard and mouse actions with precision and ease. Whether you're looking to automate repetitive tasks, create macros, or streamline your workflow, iz has got you covered.
+AutoWAutoWiz is a powerful and user-friendly automation tool designed to record and playback your keyboard and mouse actions with precision and ease. Whether you're looking to automate repetitive tasks, create macros, or streamline your workflow, AutoWAutoWiz has got you covered.
 
 ## Table of Contents
 
@@ -28,9 +28,9 @@ AutoWiz is a powerful and user-friendly automation tool designed to record and p
 - **Loop Playback:** Enable continuous playback of your recordings until you decide to stop.
 - **Save and Manage Recordings:** Easily save your recordings, load existing ones, and delete unwanted recordings.
 - **Compact and Regular Modes:** Toggle between a detailed interface and a streamlined compact mode for convenience.
-- **Always on Top:** Keep iz visible on your screen by enabling the "Always on Top" feature.
-- **Visual Status Indicators:** Stay informed about the current state of iz with color-coded status indicators and progress bars.
-- **Help and About Sections:** Access comprehensive help documentation and information about AppWiz directly within the application.
+- **Always on Top:** Keep AutoWiz visible on your screen by enabling the "Always on Top" feature.
+- **Visual Status Indicators:** Stay informed about the current state of AutoWiz with color-coded status indicators and progress bars.
+- **Help and About Sections:** Access comprehensive help documentation and information about AutoWiz directly within the application.
 - **Disclaimer Agreement:** A built-in disclaimer ensures users are informed about responsible usage.
 
 ## Demo
@@ -46,7 +46,7 @@ AutoWiz is a powerful and user-friendly automation tool designed to record and p
 
 1. **Clone the Repository**
 
-   Navigate to your desired directory and clone the AppWiz repository:
+   Navigate to your desired directory and clone the AutoWiz repository:
 
    ```bash
    git clone https://github.com/techcow2/autowiz.git
@@ -55,7 +55,7 @@ AutoWiz is a powerful and user-friendly automation tool designed to record and p
 2. **Navigate to the Directory**
 
    ```bash
-   cd AppWiz
+   cd autowiz
    ```
 
 3. **Create a Virtual Environment (Optional but Recommended)**
@@ -86,10 +86,10 @@ AutoWiz is a powerful and user-friendly automation tool designed to record and p
 
 ## Usage
 
-1. **Run iz**
+1. **Run AutoWiz**
 
    ```bash
-   python iz.py
+   python app.py
    ```
 
 2. **Recording Actions**
@@ -115,12 +115,12 @@ AutoWiz is a powerful and user-friendly automation tool designed to record and p
 5. **Additional Features**
 
    - **Compact Mode:** Toggle between regular and compact interfaces for a streamlined experience.
-   - **Always on Top:** Keep iz visible above other windows by enabling this feature.
-   - **Help and About:** Access detailed help documentation and information about iz through the respective buttons.
+   - **Always on Top:** Keep AutoWiz visible above other windows by enabling this feature.
+   - **Help and About:** Access detailed help documentation and information about AutoWiz through the respective buttons.
 
 ## Configuration
 
-iz stores its configurations and recordings in the following directories:
+AutoWiz stores its configurations and recordings in the following directories:
 
 - **Recordings Directory:** `recordings/`
 - **Configuration File:** `config.json`
@@ -129,12 +129,12 @@ Ensure these files and directories are present in the root directory of the appl
 
 ## Hotkeys
 
-iz supports global hotkeys for enhanced convenience:
+AutoWiz supports global hotkeys for enhanced convenience:
 
 - **Start Recording:** Press **R**
 - **Stop Recording or Playback:** Press **ESC**
 
-*Note:* Ensure that iz is running and has the necessary permissions to capture global hotkeys.
+*Note:* Ensure that AutoWiz is running and has the necessary permissions to capture global hotkeys.
 
 ## Screenshots
 
@@ -156,7 +156,7 @@ iz supports global hotkeys for enhanced convenience:
 
 ## Contributing
 
-Contributions are what make the open-source community thrive! We appreciate any contributions you make to iz.
+Contributions are what make the open-source community thrive! We appreciate any contributions you make to AutoWiz.
 
 ### Steps to Contribute
 
@@ -219,4 +219,4 @@ Have questions or need support? Open an issue!
 
 ---
 
-**Disclaimer:** AppWiz is intended for legitimate and ethical use only. Users are responsible for ensuring that their use of iz complies with all applicable laws and regulations. The developers are not liable for any misuse or damages resulting from the use of this software.
+**Disclaimer:** AutoWiz is intended for legitimate and ethical use only. Users are responsible for ensuring that their use of AutoWiz complies with all applicable laws and regulations. The developers are not liable for any misuse or damages resulting from the use of this software.
