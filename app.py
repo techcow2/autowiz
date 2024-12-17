@@ -368,6 +368,13 @@ class Application(tk.Tk):
         child_window.geometry(f"{width}x{height}+{x}+{y}")
 
     def create_widgets(self):
+        # Create regular mode frame
+        self.regular_frame = tk.Frame(self, bg="#f0f0f0")
+        self.regular_frame.pack(fill="both", expand=True)
+        
+        # Create compact mode frame
+        self.compact_frame = tk.Frame(self, bg="#f0f0f0")
+        
         # Create regular mode widgets
         self.create_regular_widgets()
         
@@ -376,6 +383,9 @@ class Application(tk.Tk):
         
         # Initially hide compact frame
         self.compact_frame.pack_forget()
+        
+        # Initialize status
+        self.update_status("Idle", "blue")
 
     def create_compact_widgets(self):
         # Status frame (top)
@@ -398,7 +408,7 @@ class Application(tk.Tk):
         
         # Create separate buttons for compact mode
         self.compact_record_button = tk.Button(self.compact_button_frame, text="Record", 
-                                             command=self.start_recording, width=8, 
+                                             command=lambda: self.start_recording_and_update(), width=8, 
                                              bg="#e74c3c", fg="white", 
                                              font=("Helvetica", 10, "bold"))
         self.compact_record_button.pack(side="left", padx=2)
@@ -423,6 +433,11 @@ class Application(tk.Tk):
                                            bg="#34495e", fg="white", 
                                            font=("Helvetica", 10, "bold"))
         self.compact_mode_button.pack(side="bottom", pady=5)
+
+    def start_recording_and_update(self):
+        """Wrapper method to ensure status is updated in compact mode."""
+        self.start_recording()
+        self.update_status("Recording", "#e74c3c")  # Force status update
 
     def create_regular_widgets(self):
         # Header Frame
@@ -674,8 +689,12 @@ class Application(tk.Tk):
             # Set minimal window size
             self.geometry("300x120")
             
-            # Update compact mode status to match current status
-            self.sync_status_to_compact()
+            # Get current status from regular mode
+            current_status = self.status_label.cget("text")
+            current_color = self.status_label.cget("fg")
+            
+            # Update compact mode with current status
+            self.update_status(current_status, current_color)
             
         else:
             # Hide compact frame
@@ -684,18 +703,96 @@ class Application(tk.Tk):
             # Show regular frame
             self.regular_frame.pack(fill="both", expand=True)
             
+            # Get current status from compact mode
+            current_status = self.compact_status_label.cget("text")
+            current_color = self.compact_status_label.cget("fg")
+            
+            # Update regular mode with current status
+            self.update_status(current_status, current_color)
+            
             # Resize window back to original size
             self.center_window(700, 700)
 
     def update_status(self, state, color):
-        # Update status label text and color in both modes
-        self.status_label.config(text=state, fg=color)
-        self.status_indicator.itemconfig(self.status_circle, fill=color)
+        """Update status in both regular and compact modes."""
+        # Update regular mode status
+        if hasattr(self, 'status_label'):
+            self.status_label.config(text=state, fg=color)
+            self.status_indicator.itemconfig(self.status_circle, fill=color)
         
-        # Update compact mode status if it exists
+        # Update compact mode status
         if hasattr(self, 'compact_status_label'):
             self.compact_status_label.config(text=state, fg=color)
             self.compact_status_indicator.itemconfig(self.compact_status_circle, fill=color)
+            
+        # Update button states based on status
+        self.update_button_states(state)
+        
+    def update_button_states(self, state):
+        """Update button states in both modes based on current status."""
+        if state == "Recording":
+            # Regular mode buttons
+            if hasattr(self, 'record_button'):
+                self.record_button.config(bg="#c0392b")
+                self.play_button.config(state='disabled')
+                self.save_button.config(state='disabled')
+                self.load_button.config(state='disabled')
+                self.delete_button.config(state='disabled')
+                self.stop_button.config(state='normal', text="Stop Recording")
+            
+            # Compact mode buttons
+            if hasattr(self, 'compact_record_button'):
+                self.compact_record_button.config(bg="#c0392b")
+                self.compact_play_button.config(state='disabled')
+                self.compact_stop_button.config(state='normal')
+                
+        elif state == "Playing":
+            # Regular mode buttons
+            if hasattr(self, 'record_button'):
+                self.record_button.config(state='disabled')
+                self.play_button.config(bg="#27ae60")
+                self.save_button.config(state='disabled')
+                self.load_button.config(state='disabled')
+                self.delete_button.config(state='disabled')
+                self.stop_button.config(state='normal', text="Stop Playback")
+            
+            # Compact mode buttons
+            if hasattr(self, 'compact_record_button'):
+                self.compact_record_button.config(state='disabled')
+                self.compact_play_button.config(bg="#27ae60")
+                self.compact_stop_button.config(state='normal')
+                
+        elif state == "Ready to Preview":
+            # Regular mode buttons
+            if hasattr(self, 'record_button'):
+                self.record_button.config(bg="#e74c3c", state='normal')
+                self.play_button.config(state='normal', text="Preview Recording", bg="#2ecc71")
+                self.save_button.config(state='normal')
+                self.load_button.config(state='disabled')
+                self.delete_button.config(state='disabled')
+                self.stop_button.config(state='disabled', text="Stop")
+            
+            # Compact mode buttons
+            if hasattr(self, 'compact_record_button'):
+                self.compact_record_button.config(bg="#e74c3c", state='normal')
+                self.compact_play_button.config(state='normal', text="Preview")
+                self.compact_stop_button.config(state='disabled')
+                
+        else:  # Idle state
+            # Regular mode buttons
+            if hasattr(self, 'record_button'):
+                self.record_button.config(bg="#e74c3c", state='normal')
+                self.play_button.config(state='normal', text="Play", bg="#2ecc71")
+                self.save_button.config(state='normal')
+                self.load_button.config(state='normal')
+                self.delete_button.config(state='normal')
+                self.stop_button.config(state='disabled', text="Stop")
+            
+            # Compact mode buttons
+            if hasattr(self, 'compact_record_button'):
+                self.compact_record_button.config(bg="#e74c3c", state='normal')
+                self.compact_play_button.config(state='normal', text="Play", bg="#2ecc71")
+                self.compact_stop_button.config(state='disabled')
 
     def sync_status_to_compact(self):
         # Sync the status from regular mode to compact mode
@@ -910,6 +1007,8 @@ class Application(tk.Tk):
         if not self.recorder.recording and (not self.player or not self.player.playing):
             # Schedule the recording to start in the main thread
             self.after(0, self.start_recording)
+            # Immediately update status to ensure UI responsiveness
+            self.after(0, lambda: self.update_status("Recording", "#e74c3c"))
         else:
             print("Cannot start recording. App is not idle.")
 
@@ -921,22 +1020,11 @@ class Application(tk.Tk):
         if self.player and self.player.playing:
             messagebox.showwarning("Warning", "Cannot start recording while playback is active.")
             return
+            
         self.recorder.start()
+        # Update status first to ensure both modes are synchronized
         self.update_status("Recording", "#e74c3c")  # Red color
         print("Recording started from GUI.")
-        
-        # Update regular mode buttons
-        self.record_button.config(bg="#c0392b")
-        self.play_button.config(state='disabled')
-        self.save_button.config(state='disabled')
-        self.load_button.config(state='disabled')
-        self.delete_button.config(state='disabled')
-        self.stop_button.config(state='normal', text="Stop Recording")
-        
-        # Update compact mode buttons
-        self.compact_record_button.config(bg="#c0392b")
-        self.compact_play_button.config(state='disabled')
-        self.compact_stop_button.config(state='normal')
         
         # Set up hotkey to stop recording
         if self.stop_listener:
@@ -946,23 +1034,9 @@ class Application(tk.Tk):
     def stop_recording(self):
         if self.recorder.recording:
             self.recorder.stop()
+            # Use update_status to handle all UI updates
             self.update_status("Ready to Preview", "#f39c12")  # Orange color to indicate preview state
             print("Recording stopped. Ready for preview.")
-            
-            # Update regular mode buttons
-            self.record_button.config(bg="#e74c3c")
-            self.play_button.config(state='normal', text="Preview Recording")
-            self.save_button.config(state='normal')
-            self.load_button.config(state='disabled')  # Disable load while previewing unsaved recording
-            self.delete_button.config(state='disabled')  # Disable delete while previewing unsaved recording
-            self.stop_button.config(state='disabled', text="Stop")
-            
-            # Update compact mode buttons
-            self.compact_record_button.config(bg="#e74c3c")
-            self.compact_play_button.config(state='normal', text="Preview")
-            self.compact_stop_button.config(state='disabled')
-            
-            # Don't show the "Recording Stopped" message box to allow immediate preview
             
         # Stop the hotkey listener
         if self.stop_listener:
