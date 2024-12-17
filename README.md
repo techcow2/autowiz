@@ -1,9 +1,12 @@
 # AutoWiz
-
-<img src="https://github.com/user-attachments/assets/ee8bbf1c-f26c-45e4-876a-7e9aaff8a694" 
-     alt="AutoWiz Banner" 
-     width="100%" 
-     style="max-width: 800px; height: auto; display: block; margin: 0 auto;">
+     
+<div style="text-align: center; margin: 20px 0;">
+  <img 
+    src="https://github.com/user-attachments/assets/9c80966f-9346-4114-b4d6-2abb94b6050b" 
+    alt="Descriptive Text for Image" 
+    style="max-width: 100%; height: auto; display: inline-block; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"
+  />
+</div>
 
 
 
