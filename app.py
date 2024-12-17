@@ -875,7 +875,7 @@ class Application(tk.Tk):
         about_label.pack(pady=(0, 10))
         
         about_text = (
-            "AutoWiz v1.0\n\n"
+            "AutoWiz v1.2\n\n"
             "AutoWiz is a powerful automation tool designed to record and playback keyboard and mouse actions.\n\n"
             "Developed by: TechRay Apps LLC\n"
             "Contact: support@techray.dev\n\n"
