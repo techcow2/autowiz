@@ -213,11 +213,9 @@ Contributions are what make the open-source community thrive! We appreciate any 
 
 Distributed under the [MIT License](https://opensource.org/licenses/MIT). See `LICENSE` for more information.
 
-## Contact
+## Support
 
 Have questions or need support? Open an issue!
-
-- **Website:** [www.techray.dev](https://www.techray.dev)
 
 
 ---
