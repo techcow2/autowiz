@@ -224,4 +224,4 @@ Have questions or need support? Open an issue!
 
 ---
 
-**Disclaimer:** AutoWiz is intended for legitimate and ethical use only. Users are responsible for ensuring that their use of AutoWiz complies with all applicable laws and regulations. The developers are not liable for any misuse or damages resulting from the use of this software.
+**Disclaimer:** AutoWiz is intended for legitimate and ethical use only. Users are responsible for ensuring that their use of AutoWiz complies with all applicable laws and regulations. The developers are not liable for any misuse or damages resulting from the use of this software. Additionally, due to its ability to automate mouse and keyboard interactions, AutoWiz may occasionally be flagged by antivirus software that uses AI-based detection as a false positive. This is not indicative of malicious behavior but rather a result of heuristic detection methods commonly used in such software.
