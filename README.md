@@ -14,6 +14,8 @@
 
 AutoWiz is a powerful and user-friendly automation tool designed to record and playback your keyboard and mouse actions with precision and ease. Whether you're looking to automate repetitive tasks, create macros, or streamline your workflow, AutoWiz has got you covered.
 
+**Disclaimer:** AutoWiz is intended for legitimate and ethical use only. Users are responsible for ensuring that their use of AutoWiz complies with all applicable laws and regulations. The developers are not liable for any misuse or damages resulting from the use of this software. Additionally, due to its ability to automate mouse and keyboard interactions, AutoWiz may occasionally be flagged by antivirus software that uses AI-based detection as a false positive. This is not indicative of malicious behavior but rather a result of heuristic detection methods commonly used in such software.
+
 ## Table of Contents
 
 - [Features](#features)
@@ -221,7 +223,3 @@ Have questions or need support? Open an issue!
 ---
 
 *© 2024 TechRayApps LLC. All rights reserved.*
-
----
-
-**Disclaimer:** AutoWiz is intended for legitimate and ethical use only. Users are responsible for ensuring that their use of AutoWiz complies with all applicable laws and regulations. The developers are not liable for any misuse or damages resulting from the use of this software. Additionally, due to its ability to automate mouse and keyboard interactions, AutoWiz may occasionally be flagged by antivirus software that uses AI-based detection as a false positive. This is not indicative of malicious behavior but rather a result of heuristic detection methods commonly used in such software.
