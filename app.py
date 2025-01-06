@@ -9,6 +9,7 @@ import tkinter as tk
 from tkinter import messagebox, simpledialog, filedialog
 from tkinter import ttk
 from tkinter import font
+import webbrowser
 
 # Constants for the unified stop hotkey
 STOP_HOTKEY = {Key.esc}
@@ -198,28 +199,38 @@ class Player:
                 previous_time = 0
                 total_time = self.events[-1]['time'] if self.events else 0
                 print("Starting playback iteration...")
+                
+                # Calculate start time for this iteration
+                start_time = time.perf_counter()
+                
                 for event in self.events:
                     if not self.playing:
                         print("Playback interrupted by user.")
                         break
-                    delay = (event['time'] - previous_time) / self.speed
-                    if delay > 0:
-                        print(f"Sleeping for {delay:.4f} seconds before executing event.")
-                        # Implement a shorter sleep interval to allow quicker interruption
-                        start_sleep = time.time()
-                        while time.time() - start_sleep < delay:
-                            if not self.playing:
-                                print("Playback interrupted during sleep.")
-                                return
-                            time.sleep(0.01)  # Sleep in small intervals to check for stop
-                    else:
-                        print(f"No delay needed before executing event: {event}")
-                    self.execute_event(event)
-                    previous_time = event['time']
-                    # Update progress
-                    if self.progress_callback and total_time > 0:
-                        progress = (previous_time / total_time) * 100
-                        self.progress_callback(progress)
+                        
+                    # Calculate when this event should occur relative to start time
+                    target_time = start_time + (event['time'] / self.speed)
+                    current_time = time.perf_counter()
+                    
+                    # If we're ahead of schedule, wait until the right moment
+                    if current_time < target_time:
+                        sleep_time = target_time - current_time
+                        if sleep_time > 0:
+                            # Use shorter sleep intervals for more precise timing
+                            while time.perf_counter() < target_time and self.playing:
+                                remaining = target_time - time.perf_counter()
+                                if remaining > 0.01:
+                                    time.sleep(0.001)  # Small sleep interval for better precision
+                    
+                    # Execute the event
+                    if self.playing:  # Check again in case we were stopped during sleep
+                        self.execute_event(event)
+                        previous_time = event['time']
+                        # Update progress
+                        if self.progress_callback and total_time > 0:
+                            progress = (previous_time / total_time) * 100
+                            self.progress_callback(progress)
+                
                 if self.loop and self.playing:
                     print("Completed one loop. Restarting playback...")
                 else:
@@ -540,9 +551,9 @@ class Application(tk.Tk):
         self.help_button = tk.Button(additional_frame, text="Help", command=self.show_help, width=10, bg="#1abc9c", fg="white", font=("Helvetica", 10, "bold"))
         self.help_button.pack(side="right", padx=5)
 
-        # About Button
-        self.about_button = tk.Button(additional_frame, text="About", command=self.show_about, width=10, bg="#e74c3c", fg="white", font=("Helvetica", 10, "bold"))
-        self.about_button.pack(side="right", padx=5)
+        # GitHub Button
+        self.github_button = tk.Button(additional_frame, text="GitHub", command=lambda: webbrowser.open('https://github.com/techcow2/autowiz'), width=10, bg="#333333", fg="white", font=("Helvetica", 10, "bold"))
+        self.github_button.pack(side="right", padx=5)
 
         # Exit Button
         self.exit_button = tk.Button(additional_frame, text="Exit", command=self.on_closing, width=10, bg="#e74c3c", fg="white", font=("Helvetica", 10, "bold"))
@@ -854,39 +865,6 @@ class Application(tk.Tk):
 
         # Add Okay button
         ok_button = tk.Button(content_frame, text="Okay", command=help_window.destroy,
-                            width=10, bg="#4CAF50", fg="white", font=("Helvetica", 10, "bold"))
-        ok_button.pack(pady=(0, 10))
-
-    def show_about(self):
-        about_window = tk.Toplevel(self)
-        about_window.title("About - AutoWiz")
-        about_window.geometry("400x350")  # Increased height to accommodate button
-        about_window.configure(bg="#f0f0f0")
-        # Center the about window
-        self.center_child_window(about_window, 400, 350)
-        about_window.transient(self)
-        about_window.grab_set()
-
-        # Create a frame with padding for content
-        content_frame = tk.Frame(about_window, bg="#f0f0f0", padx=20, pady=20)
-        content_frame.pack(fill="both", expand=True)
-
-        about_label = tk.Label(content_frame, text="About AutoWiz", font=("Helvetica", 16, "bold"), bg="#f0f0f0")
-        about_label.pack(pady=(0, 10))
-        
-        about_text = (
-            "AutoWiz v1.2\n\n"
-            "AutoWiz is a powerful automation tool designed to record and playback keyboard and mouse actions.\n\n"
-            "Developed by: TechRay Apps LLC\n"
-            "Contact: support@techray.dev\n\n"
-            "© 2024 AutoWiz. All rights reserved."
-        )
-        about_label = tk.Label(content_frame, text=about_text, justify="center", bg="#f0f0f0", 
-                             font=("Helvetica", 10), wraplength=360)
-        about_label.pack(pady=(0, 20))
-
-        # Add Okay button
-        ok_button = tk.Button(content_frame, text="Okay", command=about_window.destroy,
                             width=10, bg="#4CAF50", fg="white", font=("Helvetica", 10, "bold"))
         ok_button.pack(pady=(0, 10))
 
