@@ -318,7 +318,7 @@ class HotkeyListener:
 class Application(tk.Tk):
     def __init__(self):
         super().__init__()
-        self.title("AutoWiz")
+        self.title("AutoWiz v1.3")
         self.resizable(False, False)
         self.configure(bg="#f0f0f0")  # Light gray background for a modern look
 
@@ -454,7 +454,7 @@ class Application(tk.Tk):
         # Header Frame
         header_frame = tk.Frame(self.regular_frame, bg="#4a90e2")
         header_frame.pack(fill="x")
-        header_label = tk.Label(header_frame, text="AutoWiz", font=("Helvetica", 24, "bold"), bg="#4a90e2", fg="white")
+        header_label = tk.Label(header_frame, text="AutoWiz v1.3", font=("Helvetica", 24, "bold"), bg="#4a90e2", fg="white")
         header_label.pack(pady=10)
 
         # Frame for Recording Controls
