@@ -216,8 +216,3 @@ Distributed under the [MIT License](https://opensource.org/licenses/MIT). See `L
 ## Support
 
 Have questions or need support? Open an issue!
-
-
----
-
-*© 2024 TechRayApps LLC. All rights reserved.*
